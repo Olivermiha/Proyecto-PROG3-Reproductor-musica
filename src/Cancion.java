@@ -1,5 +1,3 @@
-//IAG (herramienta: Claude)
-//SIN CAMBIOS
 public class Cancion {
     private String titulo;
     private String artista;

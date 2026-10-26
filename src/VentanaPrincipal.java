@@ -16,8 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 
-//IAG (herramienta: Claude)
-//SIN CAMBIOS
 /** Ventana principal: barra superior, menú lateral, contenido central y reproductor abajo. */
 public class VentanaPrincipal extends JFrame {
     private static final long serialVersionUID = 1L;

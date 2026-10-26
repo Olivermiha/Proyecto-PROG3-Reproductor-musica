@@ -13,9 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-
-//IAG (herramienta: Claude)
-//SIN CAMBIOS
 /** Pantalla de inicio: saludo, plan de la cuenta y canciones recomendadas. */
 public class PanelInicio extends JPanel {
     private static final long serialVersionUID = 1L;

@@ -1,5 +1,3 @@
-//IAG (herramienta: Claude)
-//SIN CAMBIOS
 public class Usuario {
     private String nombre;
     private String email;

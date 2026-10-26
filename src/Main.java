@@ -3,9 +3,6 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
-
-//IAG (herramienta: Claude)
-//SIN CAMBIOS
 public class Main {
 
     public static void main(String[] args) {
