@@ -108,7 +108,7 @@ public class VentanaPrincipal extends JFrame {
         panelContenido = new JPanel(cardLayout);
 
         panelContenido.add(new PanelInicio(usuario, canciones, this::reproducir), PANEL_INICIO);
-        panelContenido.add(crearPanelProvisional("Aquí irá la gestión de canciones"), PANEL_CANCIONES);
+        panelContenido.add(new PanelCanciones(canciones, this::reproducir), PANEL_CANCIONES);
         panelContenido.add(crearPanelProvisional("Aquí irán tus listas de reproducción"), PANEL_LISTAS);
 
         return panelContenido;
