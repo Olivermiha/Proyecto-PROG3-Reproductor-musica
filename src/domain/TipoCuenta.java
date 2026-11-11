@@ -1,3 +1,5 @@
+package domain;
+
 public enum TipoCuenta {
     FREE("Free"),
     PREMIUM("Premium");
