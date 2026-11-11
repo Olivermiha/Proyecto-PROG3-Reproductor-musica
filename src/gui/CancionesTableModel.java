@@ -1,3 +1,7 @@
+package gui;
+
+import domain.Cancion;
+
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
