@@ -1,3 +1,5 @@
+package domain;
+
 public class Cancion {
     private String titulo;
     private String artista;
