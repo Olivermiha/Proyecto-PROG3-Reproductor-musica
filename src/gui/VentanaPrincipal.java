@@ -1,3 +1,9 @@
+package gui;
+
+import domain.Cancion;
+import domain.TipoCuenta;
+import domain.Usuario;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
