@@ -1,3 +1,10 @@
+package main;
+
+import domain.Cancion;
+import domain.TipoCuenta;
+import domain.Usuario;
+import gui.VentanaPrincipal;
+
 import java.util.ArrayList;
 import java.util.List;
 
