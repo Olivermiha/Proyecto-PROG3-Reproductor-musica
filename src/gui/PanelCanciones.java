@@ -1,3 +1,7 @@
+package gui;
+
+import domain.Cancion;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
