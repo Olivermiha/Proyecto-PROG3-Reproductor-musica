@@ -1,3 +1,8 @@
+package gui;
+
+import domain.Cancion;
+import domain.Usuario;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
