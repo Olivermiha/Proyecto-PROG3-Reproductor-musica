@@ -1,1 +1,38 @@
-/bin/
+# Código compilado
+*.class
+bin/
+build/
+out/
+target/
+
+# Logs y errores de la JVM
+*.log
+hs_err_pid*
+
+# Eclipse
+.metadata/
+.settings/
+.project
+.classpath
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Ficheros de SQLite
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Ficheros del sistema operativo y temporales
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+*~
