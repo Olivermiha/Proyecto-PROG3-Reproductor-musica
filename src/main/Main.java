@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         // Swing debe arrancarse en el hilo de eventos
         SwingUtilities.invokeLater(() -> {
-            Usuario usuario = new Usuario("Ana", "ana@mail.com", TipoCuenta.FREE);
+            Usuario usuario = new Usuario("Roberto", "roberto.c@mail.com", TipoCuenta.FREE);
             VentanaPrincipal ventana = new VentanaPrincipal(usuario, crearCancionesDemo());
             ventana.setVisible(true);
         });
