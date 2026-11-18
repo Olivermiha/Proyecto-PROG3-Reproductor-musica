@@ -1,0 +1,106 @@
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class VentanaRegistro extends JFrame {
+    private static final long serialVersionUID = 1L;
+
+    private List<Cancion> canciones;   // se guardan para pasárselas a la ventana principal
+
+    private JTextField txtNombre;
+    private JTextField txtEmail;
+    private JRadioButton rbFree;
+    private JRadioButton rbPremium;
+
+    public VentanaRegistro(List<Cancion> canciones) {
+        this.canciones = canciones;
+
+        setTitle("Simulador de música - Registro");
+        setSize(400, 340);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        JLabel lblTitulo = new JLabel("Regístrate para entrar", SwingConstants.CENTER);
+        lblTitulo.setFont(new Font("SansSerif", Font.BOLD, 20));
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(15, 10, 5, 10));
+        add(lblTitulo, BorderLayout.NORTH);
+
+        txtNombre = new JTextField();
+        txtEmail = new JTextField();
+
+        // Pulsar Enter en un campo equivale a pulsar el botón
+        KeyAdapter alPulsarEnter = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    registrar();
+                }
+            }
+        };
+        txtNombre.addKeyListener(alPulsarEnter);
+        txtEmail.addKeyListener(alPulsarEnter);
+
+        rbFree = new JRadioButton("Free (con anuncios)", true);
+        rbPremium = new JRadioButton("Premium (sin anuncios)");
+        ButtonGroup grupoPlanes = new ButtonGroup();
+        grupoPlanes.add(rbFree);
+        grupoPlanes.add(rbPremium);
+        JPanel panelPlanes = new JPanel(new GridLayout(1, 2));
+        panelPlanes.add(rbFree);
+        panelPlanes.add(rbPremium);
+
+        JButton btnEntrar = new JButton("Entrar");
+        btnEntrar.addActionListener(e -> registrar());
+
+        JPanel formulario = new JPanel(new GridLayout(0, 1, 5, 5));
+        formulario.setBorder(BorderFactory.createEmptyBorder(10, 30, 20, 30));
+        formulario.add(new JLabel("Nombre:"));
+        formulario.add(txtNombre);
+        formulario.add(new JLabel("Correo electrónico:"));
+        formulario.add(txtEmail);
+        formulario.add(new JLabel("Plan:"));
+        formulario.add(panelPlanes);
+        formulario.add(btnEntrar);
+        add(formulario, BorderLayout.CENTER);
+    }
+
+    /** Valida los datos y, si son correctos, abre la ventana principal. */
+    private void registrar() {
+        String nombre = txtNombre.getText().trim();
+        String email = txtEmail.getText().trim();
+
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Escribe tu nombre.", "Datos incorrectos",
+                    JOptionPane.ERROR_MESSAGE);
+            txtNombre.requestFocus();
+            return;
+        }
+        if (!email.contains("@") || !email.contains(".")) {
+            JOptionPane.showMessageDialog(this, "Escribe un correo válido, por ejemplo ana@mail.com",
+                    "Datos incorrectos", JOptionPane.ERROR_MESSAGE);
+            txtEmail.requestFocus();
+            return;
+        }
+
+        TipoCuenta tipo = rbPremium.isSelected() ? TipoCuenta.PREMIUM : TipoCuenta.FREE;
+        Usuario usuario = new Usuario(nombre, email, tipo);
+
+        new VentanaPrincipal(usuario, canciones).setVisible(true);
+        dispose();   // cierra la ventana de registro
+    }
+}
