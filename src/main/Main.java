@@ -1,10 +1,3 @@
-package main;
-
-import domain.Cancion;
-import domain.TipoCuenta;
-import domain.Usuario;
-import gui.VentanaPrincipal;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +6,9 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) {
-        // Swing debe arrancarse en el hilo de eventos
         SwingUtilities.invokeLater(() -> {
-            Usuario usuario = new Usuario("Roberto", "roberto.c@mail.com", TipoCuenta.FREE);
-            VentanaPrincipal ventana = new VentanaPrincipal(usuario, crearCancionesDemo());
-            ventana.setVisible(true);
+            VentanaRegistro registro = new VentanaRegistro(crearCancionesDemo());
+            registro.setVisible(true);
         });
     }
 
